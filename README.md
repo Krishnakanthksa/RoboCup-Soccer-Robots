@@ -1,4 +1,4 @@
-# RoboCup-Soccer-Robots, Path planning Algorithms in static and Dynamic Synarios in Simulator.
+# RoboCup-Soccer-Robots, Path planning Algorithms in Static and Dynamic Synarios in Simulator.
 This project focuses on the design and implementation of decision-making algorithms and World Models for a RoboCup Small Size League (SSL) robotic team. The primary objective is to enhance the team’s ability to navigate dynamic environments, avoid obstacles, and execute strategic actions in real time. The foundation of the project is grounded in principles of generative modeling and learning-based robotic systems.
 
 Inspired by the seminal work “World Models” by David Ha and Jürgen Schmidhuber, this project explores the use of generative models to simulate complex, dynamic environments. By leveraging these models, robots are equipped to predict environmental changes with high accuracy, adapt efficiently to unforeseen scenarios, and optimize their actions for competitive performance.
