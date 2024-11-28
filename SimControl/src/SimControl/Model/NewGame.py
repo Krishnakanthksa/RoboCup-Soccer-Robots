@@ -1,5 +1,5 @@
-from TeamControl.Model.GameState import GameControllerCommand, Stage, Team
-from TeamControl.Model.frame import Robot
+from SimControl.Model.GameState import GameControllerCommand, Stage, Team
+from SimControl.Model.frame import Robot
 import logging
 import matplotlib.pyplot as plt
 import numpy as np
