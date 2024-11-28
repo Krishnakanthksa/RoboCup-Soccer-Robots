@@ -100,7 +100,7 @@ class RobotMovement():
 
 if __name__ == "__main__":
         
-    from TeamControl.Model.world import World as wm
-    from TeamControl.Network.Receiver import grSimVision,vision
-    from TeamControl.Network.Sender import grSimSender,robotSender
+    from SimControl.Model.world import World as wm
+    from SimControl.Network.Receiver import grSimVision,vision
+    from SimControl.Network.Sender import grSimSender,robotSender
     ...
