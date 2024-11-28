@@ -1,23 +1,11 @@
-"""This is the file for all ssl sockets
-
-Raises:
-    ValueError: cannot be decoded
-"""
-from TeamControl.Network.Receiver import *
-from TeamControl.Network.Sender import *
+from SimControl.Network.Receiver import *
+from SimControl.Network.Sender import *
 
 ### GC - Recv
 class GameControl(Multicast):
     
     def __init__ (self, port : int=10003)-> None:
-        """
-        Initialising Multicast Vision SSL Socket
-
-        Args:
-            world_model (wm): current world model
-            ip (str, optional): ip of Device. Defaults to None -> local. input if other device
-            port (int, optional): Port for Game Controller Referee. Defaults to 10003. consult if changing
-        """
+        
         decoder :object = ssl_gc_referee_message_pb2.Referee()
         group : str = "224.5.23.1"
         buffer_size : int = 6000
@@ -33,19 +21,9 @@ class GameControl(Multicast):
    
 # Classes of Vision Wolrd Receivers
 class vision(Multicast):
-    """ Vision SSL multicast receiver
-        world vision SSL  mulitcast listener
-    Args:
-        Multicast (Class): base Class
-    """
+  
     def __init__(self, world_model: wm, port : int=10005) -> None:
-        """
-        Initialising Multicast Vision SSL Socket
 
-        Args:
-            world_model (wm): current world model
-            port (int, optional): Port for Vision World multicast. Defaults to 10005. change accordingly if needed
-        """
         if not isinstance(world_model, wm) :
             raise ValueError('Wrong world_model input, *world_model has to be a Model object from TeamControl.World.model.')
         decoder :object = ssl_vision_wrapper_pb2.SSL_WrapperPacket()
@@ -69,13 +47,6 @@ class grSimVision(vision):
         Multicast (Class): base Class
     """
     def __init__(self, world_model: wm, port : int=10020) -> None:
-        """
-        Initialising Multicast GR Sim World Socket
-        
-        Args:
-            ip (str, optional): ip of the grSim device. Defaults to None -> local.
-            port (int, optional): port of grSim Vision. Defaults to 10020.
-        """
         super().__init__(world_model=world_model,port=port)
         
 ### Simulation Control ### 
