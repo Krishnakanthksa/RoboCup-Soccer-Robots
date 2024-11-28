@@ -1,9 +1,9 @@
-from TeamControl.Network.ssl_networking import *
-from TeamControl.Examples.PathPlaner import * 
-from TeamControl.RobotBehaviour.behaviour import * 
-from TeamControl.Model import *
-from TeamControl.Model.world import World
-from TeamControl.VoronoiPlanner.VoronoiPlanner import VoronoiPlanner
+from SimControl.ssl_networking import *
+from SimControl.PathPlaner import * 
+from SimControl.behaviour import * 
+from SimControl.Model import *
+from SimControl.Model.world import World
+from SimControl.VoronoiPlanner import VoronoiPlanner
 
 
 if __name__ == "__main__":
