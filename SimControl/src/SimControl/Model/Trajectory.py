@@ -1,13 +1,13 @@
 import time
-from TeamControl.Coms.Action import Action
-from TeamControl.Network.Receiver import *
-from TeamControl.Network.Sender import *
-from TeamControl.Model.world import World as wm
-from TeamControl.Coms.grSimAction import grSim_Action
-from TeamControl.RobotBehaviour import *
+from SimControl.Coms.Action import Action
+from SimControl.Network.Receiver import *
+from SimControl.Network.Sender import *
+from SimControl.Model.world import World as wm
+from SimControl.Coms.grSimAction import grSim_Action
+from SimControl.RobotBehaviour import *
 import math
 import numpy as np
-from TeamControl.Formation.relative_position import *
+from SimControl.Formation.relative_position import *
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,20 +16,7 @@ from sklearn.linear_model import LinearRegression
 
 
 def predict_trajectory(history: list, num_samples, isPostive:bool, feild_size ):
-    '''
-        This function takes are input a list of ball positions and uses the last num_samples ball positions
-        to fit a ball trajectory by applying a linear regression model. We then check whether this
-        trajectory intercepts the goal line. If it does we send this information and the interception
-        point to the goalie so the goalie can block the ball.
 
-        History example: [{'x': -118.86381, 'y': 1343.0244}, {'x': -118.86381, 'y': 1343.0244}, ...]
-
-        input:
-            history: history of the last ball positions
-            num_samples: number of samples that should be used to estimate the trajectory
-        output:
-            the position the the golie depending on the state of the ball 
-    '''
     feild_x, feild_y =feild_size
             # PARAMETERS
     #GOALIE_LINE = -FIELD_LENGTH/2 + 200 #mm #On the other side of the field if we are the other team
