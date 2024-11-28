@@ -1,28 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  4 14:43:34 2024
-
-@author: oliver
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 import time
 from scipy.spatial import Voronoi, voronoi_plot_2d
 import networkx as nx
-from TeamControl.VoronoiPlanner.Obstacle import Obstacle
+from SimControl.VoronoiPlanner.Obstacle import Obstacle
 
 class VoronoiPlanner:
     def __init__(self, xsize, ysize, obstacles = None):
-        """
-        Initialize the Voronoi Planner. Optionally provide initial obstacles.
-        
-        :param xsize: area x-size
-        :param ysize: area y-size
-        :param obstacles: List of obstacles (optional).
-        """
         self.xsize = xsize
         self.ysize = ysize
         self.obstacle_points = None
@@ -124,14 +111,6 @@ class VoronoiPlanner:
         return path
     
     def generate_waypoints(self, starts, goals, d0):
-        """
-        Generate waypoints for each start-goal pair based on obstacle avoidance.
-    
-        :param starts: List of robots as start of the trajectories.
-        :param goals: List of goal points [(x, y), ...].
-        :param d0: Distance to check from start towards the goal.
-        :return: List of waypoints or None for each start-goal pair.
-        """
         waypoints = []
     
         for start, goal in zip(starts, goals):      
@@ -153,14 +132,6 @@ class VoronoiPlanner:
         return waypoints    
     
     def simplify(self, path, clearance, exclude_unums = []):
-        """
-        Simplify a computed path by greedily skipping intermediate waypoints
-        without running into obstacles.
-    
-        :param path: List of waypoints [(x, y), ...].
-        :param clearance: The clearance distance required from obstacles.
-        :return: Simplified path.
-        """
         if not path or len(path) < 3:
             return path  # No simplification needed
     
@@ -186,17 +157,6 @@ def add_jitter(path, jitter_amount=0.05):
     return path + jitter
 
 def generate_points(N, dmin, xrange=(0, 1), yrange=(0, 1), other_points = []):
-    """
-    Generate N random points within specified ranges ensuring each point
-    is at least dmin distance from every other point, using rejection sampling.
-    
-    :param N: Number of points to generate.
-    :param dmin: Minimum distance between points.
-    :param xrange: Range for x coordinates as (min, max).
-    :param yrange: Range for y coordinates as (min, max).
-    :param other_points: Additional points to be considered.
-    :return: Array of shape (N, 2) with generated points.
-    """
     points = []
     allpoints = other_points.copy()
     
